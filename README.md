@@ -11,6 +11,9 @@ A mobile-first facilities management and maintenance PWA for Botswana, designed 
 - Dashboards and reports derived from persisted operational records.
 - Admin-managed landing-page content, services, FAQs, announcements and branding.
 
+## Media and branding
+The landing-page hero uses an inline, project-specific facilities illustration. Do not reintroduce bundled MP4s or unrelated assets from Africhiko, Boemo or Namane Tyres. Use admin-managed UploadThing media for genuine project evidence and customer-facing updates.
+
 Do not treat a requested or planned capability as implemented until it is present and verified. This repository is still being adapted from its protected Africhiko foundation.
 
 ## Protected PWA foundation
