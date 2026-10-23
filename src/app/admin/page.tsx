@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import AfrichikoPortal from "@/components/AfrichikoPortal";
 
 export const metadata: Metadata = {
-  title: "Enquiry operations",
-  description: "Review Africhiko project enquiries and manage fabrication services.",
+  title: "Facilities operations",
+  description: "Manage facilities business details, services, media and customer requests.",
   robots: { index: false, follow: false },
 };
 
