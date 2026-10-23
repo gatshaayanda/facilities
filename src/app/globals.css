@@ -236,3 +236,6 @@
 .af-auth-form .af-form{margin-top:10px}
 .af-auth-form .af-summary-secondary{display:inline-block;margin-top:8px;padding:0;border:0;background:transparent;color:#245b8f;text-align:left;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .af-auth-form .af-summary-secondary:hover{color:#183b5c}
+
+/* Facilities-specific hero illustration: scale the inline SVG cleanly on every screen. */
+.af-facilities-graphic svg{display:block;width:100%;height:100%;}
