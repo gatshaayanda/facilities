@@ -1,4 +1,4 @@
-const CACHE_NAME = "africhiko-shell-v1";
+const CACHE_NAME = "facilities-shell-v1";
 const APP_SHELL = ["/", "/services", "/enquiry", "/basket", "/account", "/offline", "/africhiko-icon.svg"];
 const PUBLIC_MEDIA = ["/videos/enter.mp4", "/videos/gear.mp4", "/videos/outside.mp4"];
 
