@@ -1,48 +1,36 @@
-# Africhiko
+# Facilities
 
-Africhiko is a customer-first steel fabrication and welding enquiry PWA for Botswana.
+A mobile-first facilities management and maintenance PWA for Botswana, designed for commercial properties, offices, schools, retail sites and hospitality facilities.
 
-## Customer journey
+## Intended workflows
+- Public service information and an enquiry path for prospective clients.
+- Property, building/area and asset records for authorized organizations.
+- Maintenance requests, triage, assignment, work-order updates and completion evidence.
+- Manager verification and closure with an auditable status history.
+- Preventive maintenance schedules, inspections, findings and follow-up work.
+- Dashboards and reports derived from persisted operational records.
+- Admin-managed landing-page content, services, FAQs, announcements and branding.
 
-1. Browse the service catalogue and indicative starting prices.
-2. Add services to a single project request, or describe a custom project.
-3. Submit contact details, project location, dimensions, materials and notes for review.
-4. After submission, create a customer account to keep enquiries associated with the same Firebase identity, or continue as a guest.
+Do not treat a requested or planned capability as implemented until it is present and verified. This repository is still being adapted from its protected Africhiko foundation.
 
-An enquiry is not a confirmed quotation or job. Africhiko reviews the details before discussing a quote.
+## Protected PWA foundation
+The approved native installation flow and service-worker/offline behavior are protected. Keep the existing install lifecycle, install card, embedded-browser handling and iOS guidance intact while changing project branding. The existing chatbot behavior is also protected.
 
-## Customer account
-
-The account page supports email/password sign-in and account creation. When a guest creates an account during the enquiry journey, the existing anonymous Firebase user is linked to the new credential so the customer identity and associated enquiries are preserved.
-
-## Progressive web app
-
-- The install card is dismissible and calls the browser's native install prompt when the browser provides one.
-- On iPhone and iPad, installation is handled through Safari's Share menu and **Add to Home Screen**; Chromium's `beforeinstallprompt` event is not a universal iOS installation mechanism.
-- The service worker uses an Africhiko-specific cache namespace to keep this app's cached shell separate from other projects.
-
-## Operations
-
-The `/admin` route is the staff surface for reviewing enquiries and managing fabrication services. It depends on the Africhiko Firebase project configuration and the project's configured staff authorization.
-
-## Stack
-
-- Next.js 15 / React 19 / TypeScript
-- Firebase Authentication and Cloud Firestore
-- Firebase Storage for project reference uploads and service media
-- Progressive Web App support
+## Stack and integrations
+- Next.js 15, React 19 and TypeScript
+- Firebase Authentication and Cloud Firestore, configured for project `facilities-50219`
+- UploadThing for media uploads (`UPLOADTHING_TOKEN` must be set privately)
+- PWA installation and service-worker support
 - Vercel Analytics and Speed Insights
-- Vercel deployment from GitHub `main`
 
-## Development
+## Local development
+1. Install Node.js version from `.nvmrc`.
+2. Copy `.env.example` to `.env.local` and confirm the Firebase values.
+3. Add the UploadThing token you already created to `.env.local`.
+4. Set a strong, private `ADMIN_PASSWORD` and configure `FIREBASE_ADMIN_KEY` only if the corresponding server-side admin workflow is being used.
+5. Run `npm install`, then `npm run dev`.
 
-Install dependencies and run the local development server:
+Never commit `.env.local`, the UploadThing token, Firebase Admin service-account JSON or other private credentials. The Firebase web config can be present in client bundles; database access must be protected by Authentication and Firestore rules.
 
-```bash
-npm install
-npm run dev
-```
-
-Before QA, configure the `NEXT_PUBLIC_FIREBASE_*` environment variables for the Africhiko Firebase project and verify the relevant Firestore and Storage rules. Run lint, type checks and a production build before considering the branch release-ready.
-
-Never commit `.env.local`, service-account credentials or other private secrets.
+## Verification
+Before QA, run `npx tsc --noEmit`, `npm run lint` and `npm run build` where the environment permits. Test the customer enquiry flow, authorized role boundaries, property isolation, work-order evidence and manager verification, scheduled inspection recurrence, and PWA installation/offline behavior. A successful push does not prove deployment.
