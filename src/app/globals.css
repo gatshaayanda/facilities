@@ -229,3 +229,10 @@
 @media(prefers-reduced-motion:reduce){.af-facilities-graphic,.af-placeholder-illustration{transition:none}}
 
 .af-brand-symbol{position:static!important;right:auto!important;top:auto!important;color:#fff!important;font-size:1.8rem!important}
+
+.af-auth-divider{display:flex;align-items:center;gap:12px;margin:18px 0;color:var(--muted);font-size:.78rem}
+.af-auth-divider:before,.af-auth-divider:after{content:"";height:1px;flex:1;background:var(--line)}
+.af-auth-form>.af-button{width:100%;justify-content:center}
+.af-auth-form .af-form{margin-top:10px}
+.af-auth-form .af-summary-secondary{display:inline-block;margin-top:8px;padding:0;border:0;background:transparent;color:#245b8f;text-align:left;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.af-auth-form .af-summary-secondary:hover{color:#183b5c}
