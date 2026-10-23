@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Facilities Management",
-    short_name: "Facilities Management",
+    short_name: "Facilities",
     description: "Facilities management and property maintenance in Botswana.",
     start_url: "/",
     display: "standalone",
