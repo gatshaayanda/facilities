@@ -227,3 +227,5 @@
 .af-business-profile{margin-bottom:24px}
 @media(max-width:620px){.af-footer-admin{justify-self:start}.af-facilities-graphic>span{font-size:7rem}}
 @media(prefers-reduced-motion:reduce){.af-facilities-graphic,.af-placeholder-illustration{transition:none}}
+
+.af-brand-symbol{position:static!important;right:auto!important;top:auto!important;color:#fff!important;font-size:1.8rem!important}
