@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     const app = getAdminApp();
     const decoded = await getAuth(app).verifyIdToken(token);
     if (decoded.firebase?.sign_in_provider !== "anonymous") {
-      return NextResponse.json({ error: "Use a fresh workshop access session." }, { status: 401 });
+      return NextResponse.json({ error: "Use a fresh Facilities admin access session." }, { status: 401 });
     }
     const db = getFirestore(app);
     const adminRef = db.collection("admins").doc(decoded.uid);
