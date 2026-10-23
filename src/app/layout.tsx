@@ -5,7 +5,7 @@ import PwaRegister from "@/app/pwa-register";
 import "./globals.css";
 import "./pwa.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://facilities.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
