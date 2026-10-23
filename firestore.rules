@@ -81,6 +81,28 @@ service cloud.firestore {
       allow create, update, delete: if false;
     }
 
+    match /siteSettings/{settingId} {
+      // Only the public business profile is readable without an admin role.
+      allow read: if settingId == 'businessProfile' || isAdmin();
+      allow create, update: if isAdmin()
+        && settingId == 'businessProfile'
+        && request.resource.data.keys().hasAll(['businessName', 'tagline', 'phone', 'email', 'location', 'updatedAt'])
+        && request.resource.data.keys().hasOnly(['businessName', 'tagline', 'phone', 'email', 'location', 'updatedAt'])
+        && request.resource.data.businessName is string
+        && request.resource.data.businessName.size() > 0
+        && request.resource.data.businessName.size() <= 100
+        && request.resource.data.tagline is string
+        && request.resource.data.tagline.size() <= 180
+        && request.resource.data.phone is string
+        && request.resource.data.phone.size() <= 40
+        && request.resource.data.email is string
+        && request.resource.data.email.size() <= 254
+        && request.resource.data.location is string
+        && request.resource.data.location.size() <= 180
+        && request.resource.data.updatedAt is string;
+      allow delete: if isAdmin() && settingId == 'businessProfile';
+    }
+
     match /services/{serviceId} {
       // The public catalogue is not private; staff-only writes protect its integrity.
       allow read: if true;
